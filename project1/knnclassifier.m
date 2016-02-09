@@ -24,17 +24,23 @@ un=unique(yTr);
 preds=un(ceil(rand(1,n)*length(un)));
 
 %% fill in code here
+while(k>0)
 [indices,dists]=findknn(xTr,xTe,k);
 labelY=zeros(k,n);
 preds=zeros(1,n); % store the predicted label
-for i=1;n
-    count=zeros(1,ntr); % store the label of the k-nearest vectors
-    for j=1:k
-        labelY(j,i)=yTr(indices(j,i));
-        count(find(yTr==labelY(j,i)))=(find(yTr==labelY(j,i)))+1;
-    end
-    [MAX, Index]=max(count);
-    preds(i)=Index;
+labelY=yTr(indices(:,:));
+  if k==1
+      preds=labelY;
+      break;
+  else
+      [preds,F,C]=mode(labelY);
+  end
+      drawDet=cellfun('length',C);
+  if(sum(drawDet)==n)
+      break;
+  else
+      k=k-1;
+  end
 end
 
     

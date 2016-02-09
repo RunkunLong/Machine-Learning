@@ -18,6 +18,6 @@ switch kind
 		%% fill in code here
 		 	acc=truth-preds;
             dim=size(acc,2);
-            output=(sum(acc~=0))/dim;
+            output=(sum(acc==0))/dim;
 end;
 
