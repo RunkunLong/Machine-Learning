@@ -15,15 +15,34 @@ function D=l2distance(X,Z)
 % call with only one input:
 % l2distance(X)=l2distance(X,X)
 %
-
 if (nargin==1) % case when there is only one input (X)
 	%% fill in code here
-
+[d,n]=size(X); % dimension of X
+Stemp=innerproduct(X);
+Sdiag=diag(Stemp);
+S=repmat(Sdiag,1,n);
+R=repmat(Sdiag',n,1);
+G=innerproduct(X);
+Dsqr=S-2*G+R;
+D=sqrt(Dsqr);
 else  % case when there are two inputs (X,Z)
 	%% fill in code here
+[d,n]=size(X); % dimension of X
+[~,m]=size(Z); % number of input vectors in Z
+Stemp=innerproduct(X);
+Rtemp=innerproduct(Z);
+Sdiag=diag(Stemp);
+Rdiag=diag(Rtemp);
+S=repmat(Sdiag,1,m);
+R=repmat(Rdiag',n,1);
+G=innerproduct(X,Z);
+Dsqr=S-2*G+R;
+D=sqrt(Dsqr);
+
 
 end;
 %
+
 
 
 
