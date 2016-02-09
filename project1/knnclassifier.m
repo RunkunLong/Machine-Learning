@@ -39,6 +39,7 @@ labelY=yTr(indices(:,:));
   if(sum(drawDet)==n)
       break;
   else
+      
       k=k-1;
   end
 end
