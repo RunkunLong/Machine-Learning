@@ -17,5 +17,8 @@ if nargin<3,
 end;
 
 %% fill in code here
-
-
+[d,n]=size(x);
+B=ones(1,n);
+X=[x ; B ]; 
+W=[w;b];
+preds=sign(W'*X);
