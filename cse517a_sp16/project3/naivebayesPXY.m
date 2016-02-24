@@ -18,4 +18,8 @@ y=[y -1 1];
 
 [d,n] = size(x);
 %% fill in code here
+y(y==-1)=0;%% subsitute all the -1 in y to 0
+          %% in order to simplify our computation
+posprob=(x*y')/sum(y);  
+negprob=(x*(1-y)')/sum(1-y);
 
