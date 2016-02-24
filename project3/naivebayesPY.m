@@ -17,4 +17,5 @@ y=[y -1 1];
 
 [d,n] = size(x);
 %% fill in code here
-
+pos=(sum(y(:)>0))/length(y);
+neg=(sum(y(:)<0))/length(y);
