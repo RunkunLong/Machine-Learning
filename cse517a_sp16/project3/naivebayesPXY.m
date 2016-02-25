@@ -12,9 +12,9 @@ function [posprob,negprob] = naivebayesPXY(x,y)
 %
 
 % add one all-ones positive and negative example
-[d,n]=size(x);
-x=[x ones(d,2)];
-y=[y -1 1];
+%[d,n]=size(x);
+%x=[x ones(d,2)];
+%y=[y -1 1];
 
 [d,n] = size(x);
 %% fill in code here
