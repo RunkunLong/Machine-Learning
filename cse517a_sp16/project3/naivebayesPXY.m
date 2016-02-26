@@ -12,14 +12,18 @@ function [posprob,negprob] = naivebayesPXY(x,y)
 %
 
 % add one all-ones positive and negative example
-%[d,n]=size(x);
-%x=[x ones(d,2)];
-%y=[y -1 1];
+[d,n]=size(x);
+x=[x ones(d,2)];
+y=[y -1 1];
 
 [d,n] = size(x);
 %% fill in code here
-y(y==-1)=0;%% subsitute all the -1 in y to 0
-          %% in order to simplify our computation
-posprob=(x*y')/sum(y);  
-negprob=(x*(1-y)')/sum(1-y);
+posy=length(find(y==1));
+negy=length(find(y==-1));
+posx=x(:,y==1);
+negx=x(:,y==-1);
+posprob=sum(posx,2)/posy;
+posprob=posprob/sum(posprob);
+negprob=sum(negx,2)/negy;
+negprob=negprob/sum(negprob);
 
