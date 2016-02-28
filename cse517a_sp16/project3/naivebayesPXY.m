@@ -20,10 +20,11 @@ y=[y -1 1];
 %% fill in code here
 posy=length(find(y==1));
 negy=length(find(y==-1));
-posx=x(:,y==1);
 negx=x(:,y==-1);
-posprob=sum(posx,2)/posy;
-posprob=posprob/sum(posprob);
-negprob=sum(negx,2)/negy;
+posx=x(:,y==1);
+disp(posx)
+posprob=sum(posx,2);
+negprob=sum(negx,2);
+poosprob=posprob/sum(posprob);
 negprob=negprob/sum(negprob);
 

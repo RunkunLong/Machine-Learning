@@ -32,8 +32,8 @@ end;
 
 % Test the Naive Bayes function on a simple matrix
 y=[-1 1];
-x=[0 1
-   1 0];
+x=[01
+   1 0]; 
 
 [pos,neg] = naivebayesPY(x,y);
 pos0 = 0.5;
