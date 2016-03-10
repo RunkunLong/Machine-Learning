@@ -1,4 +1,4 @@
-function [loss,gradient,preds]=hinge(w,xTr,yTr,lambda)
+function [loss,gradient]=hinge(w,xTr,yTr,lambda)
 % function w=ridge(xTr,yTr,lambda)
 %
 % INPUT:
@@ -14,4 +14,11 @@ function [loss,gradient,preds]=hinge(w,xTr,yTr,lambda)
 %
 
 [d,n]=size(xTr);
+
+loss=sum(max(1-yTr.*(w'*xTr),0))+lambda*w'*w;
+
+temp=max(1-yTr.*(w'*xTr),0);
+yTrnew=yTr;
+yTrnew(find(temp==0))=0;
+gradient=-xTr*yTrnew'+2*lambda*w;
 
