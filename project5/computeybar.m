@@ -20,4 +20,17 @@ ybar=zeros(1,n);
 % Feel free to use the following function to compute p(x|y)
 normpdf=@(x,mu,sigma)   exp(-0.5 * ((x - mu)./sigma).^2) ./ (sqrt(2*pi) .* sigma);
 
+pxy1 = normpdf(xTe,0,1);
+pxy2 = normpdf(xTe,OFFSET,1);
+pxy1=prod(pxy1);
+pxy2=prod(pxy2);
+
+py1 = 0.5; py2 = 0.5;
+
+py1x=pxy1.*py1./(pxy1.*py1 + pxy2.*py2);
+py2x=pxy2.*py2./(pxy1.*py1 + pxy2.*py2);
+
+
+ybar = py1x+py2x*2;
+
 
