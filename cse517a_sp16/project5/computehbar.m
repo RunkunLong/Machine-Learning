@@ -25,6 +25,6 @@ for j=1:NMODELS
     fun=kregression(xTr,yTr,sigma,lambda);
     hbar = hbar + fun(xTe);
 end;
-hbar=hbar./NMODELS;
+hbar= hbar./NMODELS;
 
 
